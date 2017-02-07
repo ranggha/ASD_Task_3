@@ -3,7 +3,6 @@
 
 #include "list.h"
 
-address sentinelSearch(List L, infotype x);
 void insertionSort(List &L);
 
 void deletebyID(List &L, infotype x);
