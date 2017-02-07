@@ -1,4 +1,4 @@
-# Task_3
+# Task_3 - 2017
 
 ## Linked List Introduction
 Create a program to store and manage a data using single linear linked list
@@ -39,8 +39,6 @@ Create ADT of single linked list
   
 
 ### operasi.h
-* define search-by-ID function using sentinel
-  * function sentinelSearch( i: L : List, x : infotype ) : address
 * define insertion sort procedure
   * procedure insertionSort( i: L : List )
 * define deletebyID function
@@ -67,5 +65,7 @@ Menu Application:
   6. delete last
   7. view list
   8. search element
-
   
+   
+### CRITERIA
+ID is unique, check whether ID is already exsits when inserting new element
