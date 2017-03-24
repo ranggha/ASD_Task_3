@@ -16,8 +16,13 @@ using namespace std;
 *   ..... : .....
 *   ..... : .....
 * >
-*
-* Type infotype : stuff
+**/
+
+    Type infotype : stuff
+
+        typedef stuff infotype;
+
+/**
 * Type address  : pointer to ElmList
 *
 * Type ElmList <
@@ -33,27 +38,27 @@ using namespace std;
 struct [stuff]{
 	int id;
     //------------- your code here -----------
-    
-	
-	
+
+
+
     //----------------------------------------
 };
 
 typedef stuff infotype;
 typedef struct elmlist *address;
 
-struct elmlist{
-    //------------- your code here -----------
-    
-	
-    //----------------------------------------
+struct elmlist
+{
+    // NIM :1301164017
+    infotype info;
+    address next;
 };
 
-struct List{
-    //------------- your code here -----------
-    
-	
-    //----------------------------------------
+struct List
+{
+    // NIM :1301164017
+    address first;
+
 };
 
 

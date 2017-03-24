@@ -1,142 +1,138 @@
 #include "list.h"
 
 void createList(List &L) {
-    /**
-    * FS : first(L) diset Nil
-    */
-    //-------------your code here-------------
-    // NIM : 
-    
-
-    //----------------------------------------
+    // NIM : 1301164017
+   first(L) = NULL;
 }
 
-address alokasi(infotype x) {
-    /**
-    * FS : mengembalikan elemen list baru dengan info = x, next elemen = Nil
-    */
-
+address alokasi(infotype x)
+{
+     // NIM :1301164017
     address P;
-    //-------------your code here-------------
-    // NIM : 
-
-
-    //----------------------------------------
+        address P = newelmlist;
+        info(P) = x;
+        next(P) = NULL;
     return P;
 }
 
-void dealokasi(address &P) {
-    /**
-    * FS : menghapus elemen yang ditunjuk oleh P (delete)
-    */
-    //-------------your code here-------------
-    // NIM : 
-
-	
-    //----------------------------------------
+void viewlist(List L)
+{
+     // NIM :1301164017
+    address(P) = first(L);
+        while (next(P)!=NULL) {
+            cout<<info(P)<<" ";
+            P = Next (P);
+        }
+        cout<<endl;
 }
 
-void insertFirst(List &L, address P) {
-    /**
-    * IS : List L mungkin kosong
-    * FS : elemen yang ditunjuk P menjadi elemen pertama pada List L
-    */
-    //-------------your code here-------------
-    // NIM : 
-	
-
-    //----------------------------------------
+void dealokasi(address &P)
+{
+    // NIM :1301164017
+    delete (P);
 }
 
-void insertLast(List &L, address P) {
-    /**
-    * IS : List L mungkin kosong
-    * FS : elemen yang ditunjuk P menjadi elemen terakhir pada List L
-    */
-    //-------------your code here-------------
-    // NIM : 
-    
-	
-    //----------------------------------------
+void insertFirst(List &L, address P)
+{
+    // NIM :1301164017
+    next (P) = first (L);
+    first(L) = P;
+    }
+
+void insertLast(List &L, address P)
+{
+    // NIM :1301164017
+   address Q = first (L);
+   first (L) = P;
 }
 
-address findElm(List L, infotype x) {
-    /**
-    * IS : List L mungkin kosong
-    * FS : mengembalikan elemen dengan info.ID = x.ID,
-           mengembalikan Nil jika tidak ditemukan
-    */
-
+address findElm(List L, infotype x)
+{
     address P;
     //-------------your code here-------------
-    // NIM : 
-    
-	
+    // NIM :1301164017
+        while (P != NULL && info(P) != x)
+        {
+            P = next(P);
+        }
     //----------------------------------------
     return P;
 }
 
 void deleteFirst(List &L, address &P) {
-    /**
-    * IS : List L mungkin kosong
-    * FS : elemen pertama di dalam List L dilepas dan disimpan/ditunjuk oleh P
-    */
-    //-------------your code here-------------
-    // NIM : 
 
-	
-	
+    // NIM :1301164017
+        if (first(L) != NULL)
+        {
+            P = first(L);
+            first(L) = next(P);
+            next(P) = NULL;
+        }
+
+
     //----------------------------------------
 }
 
 void deleteLast(List &L, address &P) {
-    /**
-    * IS : List L mungkin kosong
-    * FS : elemen tarakhir di dalam List L dilepas dan disimpan/ditunjuk oleh P
-    */
-    //-------------your code here-------------
-    // NIM : 
 
-	
+    // NIM :1301164017
+
+    if (first(L) != NULL)
+    {
+        P = first(L);
+            if (next(P) == NULL)
+            {
+                deleteFirst(L,P);
+            }
+          else
+            {
+                while (next(next(P)) != NULL)
+                {
+                    P = next(P);
+                }
+                address(Q) = P;
+                P = next(P);
+                next(Q) = NULL;
+            }
+    }
+
 
     //----------------------------------------
 }
 
-void printInfo(List L) {
-    /**
-    * FS : menampilkan info seluruh elemen list L
-    */
-    //-------------your code here-------------
-    // NIM : 
+void printInfo(List L)
+{
+    // NIM : 1301164017
 
-	
-    //----------------------------------------
+    address P = first(L);
+      while(P != NULL)
+      {
+          cout<<info(P) <<" ";
+          P = next(P);
+      }
+      cout<<endl;
 }
 
 
-void insertAfter(address Prec, address P) {
-    /**
-    * IS : Prec dan P tidak NULL
-    * FS : elemen yang ditunjuk P menjadi elemen di belakang elemen yang
-    *      ditunjuk pointer Prec
-    */
-    //-------------your code here-------------
-    // NIM : 
-
-	
-    //----------------------------------------
+void insertAfter(address Prec, address P)
+{
+    // NIM :1301164017
+    if (first(L) != NULL)
+        {
+            next(P) = next(Prec);
+            next(Prec) = P;
+        }
+      else
+        {
+            insertFirst(L,P);
+        }
 
 }
-void deleteAfter(address Prec, address &P) {
-    /**
-    * IS : Prec tidak NULL
-    * FS : elemen yang berada di belakang elemen Prec dilepas
-    *      dan disimpan/ditunjuk oleh P
-    */
-    //-------------your code here-------------
-    // NIM : 
-    
-	
-    //----------------------------------------
+void deleteAfter(address Prec, address &P)
+{
+    // NIM :1301164017
+    P = next(Prec);
+    next(Prec) = next (P);
+    next(P) = NULL;
 }
 

@@ -4,22 +4,19 @@
 
 using namespace std;
 
-void mainMenu();
-List L;
-address P1 = NULL;
-address P2 = NULL;
-infotype x;
-
-int main()
+address get_input()
 {
-    createList(L);
-
-    mainMenu();
-
-    return 0;
+    infotype x;
+    cout<<"Masukan Nim :  ";
+    cin>>x.nim;
+    cout<<"Masukan Nama : ";
+    cin>>x.nama;
+    return alokasi (x);
 }
 
-void mainMenu(){
+
+void mainMenu(List L)
+{
     /**
 	* IS : List sudah dibuat
     * PR : memberikan output pilihan menu kepada user
@@ -34,7 +31,79 @@ void mainMenu(){
     *       9. search
     */
     //-------------your code here-------------
+        address P,Q;
+        infotype dicari;
+        int pil;
+        do
+        {
+            cout<<" Pilihan Menu "<<endl;
+            cout<<" 1.Insert First "<<endl;
+            cout<<" 2.Insert Last "<<endl;
+            cout<<" 3.Insert After "<<endl;
+            cout<<" 4.Delete First "<<endl;
+            cout<<" 5.Delete After "<<endl;
+            cout<<" 6.Delete Last "<<endl;
+            cout<<" 7.view List "<<endl;
+            cout<<" 8.Insertion Sort "<<endl;
+            cout<<" 9. Exit "<<endl;
+            cout<<" Masukan Pilihan Anda : ";
+            cin>>pil;
+            switch(pil);
+            {
+                case 1;
+                        P = get_input();
+                        insertFirst(L,P);
+                        break;
+                case 2;
+                        P = get_input();
+                        insertLast(L,P);
+                        break;
+                case 3;
+                        cout<<"Masukan Nim yang akan dicari : ";
+                        cin>>dicari.nim;
+                        Q = findElm(L,dicari);
+                        if( Q != NULL)
+                        {
+                            P = get_input();
+                            insertAfter(Q,P);
+                        }; break;
+                case 4;
+                        printInfo(L);
+                        break;
+                case 5;
+                        deleteFirst(L,P);
+                        dealokasi(P);
+                        break;
+                case 6;
+                        deleteLast(L,P);
+                        dealokasi(P);
+                        break;
+                case 7;
+                        cin>> dicari.nim;
+                        Q = findElm(L, dicari);
+                        if (Q != NULL)
+                            {
+                                deleteAfter(Q,P);
+                                dealokasi(P);
+                            };  break;
+
+            }
+        }
 
 
     //----------------------------------------
+
+
+    int main()
+{
+    List L;
+    createList(L);
+
+
+    mainMenu(L);
+
+    return 0;
+}
+
+
 }
